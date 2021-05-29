@@ -127,10 +127,16 @@ export class CategoriesComponent implements OnInit {
     }
 
 
-    // выбираем категорию для отображения
+    // выбираем категорию для отображения соотв. задач
     showCategory(category: Category) {
 
+        // если не изменилось значение, ничего не делать (чтобы лишний раз не делать запрос данных)
+        if (this.selectedCategory === category) {
+            return;
+        }
 
+        this.selectedCategory = category; // сохраняем выбранную категорию
+        this.selectCategory.emit(this.selectedCategory); // вызываем внешний обработчик
     }
 
 

@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {CategoriesComponent} from './views/categories/categories.component';
-import {TasksComponent} from "./views/tasks/tasks.component";
+import {TaskListComponent} from "./views/tasks/tasks.component";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
@@ -37,8 +37,9 @@ import {EditPriorityDialogComponent} from "./dialog/edit-priority-dialog/edit-pr
 import {SidebarModule} from "ng-sidebar";
 import {DeviceDetectorModule} from "ngx-device-detector";
 import {HttpClientModule} from "@angular/common/http";
-import {TASK_URL_TOKEN} from "./data/dao/impl/TaskService";
+
 import {STAT_URL_TOKEN} from "./data/dao/impl/StatService";
+import {TASK_URL_TOKEN} from "./data/dao/impl/TaskService";
 import {CATEGORY_URL_TOKEN} from "./data/dao/impl/CategoryService";
 import {PRIORITY_URL_TOKEN} from "./data/dao/impl/PriorityService";
 
@@ -48,7 +49,7 @@ registerLocaleData(localeRu);
     declarations: [
         AppComponent,
         CategoriesComponent,
-        TasksComponent,
+        TaskListComponent,
         EditTaskDialogComponent,
         ConfirmDialogComponent,
         TaskDatePipe,
@@ -86,22 +87,31 @@ registerLocaleData(localeRu);
         HttpClientModule
     ],
     providers: [
+
         {
             provide: TASK_URL_TOKEN,
             useValue: 'http://localhost:8080/task'
         },
+
         {
             provide: CATEGORY_URL_TOKEN,
             useValue: 'http://localhost:8080/category'
         },
+
+
         {
             provide: PRIORITY_URL_TOKEN,
             useValue: 'http://localhost:8080/priority'
         },
+
+
         {
             provide: STAT_URL_TOKEN,
             useValue: 'http://localhost:8080/stat'
         },
+
+
+
     ],
     entryComponents: [
         EditTaskDialogComponent,
