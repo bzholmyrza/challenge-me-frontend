@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Task} from './model/Task';
 import {Category} from "./model/Category";
+import {Priority} from "./model/Priority";
 import {IntroService} from "./service/intro.service";
 import {DeviceDetectorService} from "ngx-device-detector";
 import {CategoryService} from "./data/dao/impl/CategoryService";
