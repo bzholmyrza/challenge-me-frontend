@@ -12,15 +12,19 @@ import {DeviceDetectorService} from "ngx-device-detector";
 })
 export class CategoriesComponent implements OnInit {
 
+    @Input('categories')
+    set setCategories(categories: Category[]) {
+        this.categories = categories;
+        console.log(categories);
+    }
 
     @Input()
     selectedCategory: Category;
 
-    categoryMap: Map<Category, number>; // список всех категорий и кол-во активных задач
-
     // кол-во невыполненных задач всего
     @Input()
-    uncompletedTotal: number;
+    uncompletedCountForCategoryAll: number;
+
 
     // выбрали категорию из списка
     @Output()
@@ -45,6 +49,7 @@ export class CategoriesComponent implements OnInit {
 
     isMobile: boolean;
 
+    categories: Category[];
 
     // для отображения иконки редактирования при наведении на категорию
     indexMouseMove: number;
@@ -59,12 +64,6 @@ export class CategoriesComponent implements OnInit {
         this.isMobile = deviceService.isMobile();
         this.isTablet = deviceService.isTablet();
 
-    }
-
-    // категории с кол-вом активных задач для каждой из них
-    @Input('categoryMap')
-    set setCategoryMap(categoryMap: Map<Category, number>) {
-        this.categoryMap = categoryMap;
     }
 
     // метод вызывается автоматически после инициализации компонента
