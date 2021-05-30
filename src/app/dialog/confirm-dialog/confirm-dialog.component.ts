@@ -21,8 +21,7 @@ export class ConfirmDialogComponent implements OnInit {
         this.message = data.message; // сообщение
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     // нажали ОК
     confirm(): void {

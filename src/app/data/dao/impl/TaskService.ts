@@ -15,21 +15,22 @@ export const TASK_URL_TOKEN = new InjectionToken<string>('url');
 // JSON формируется автоматически для параметров и результатов
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 // благодаря DAO и единому интерфейсу - мы можем вынести общую реализация в класс выше и избежать дублирования кода
 // классу остается только реализовать свои специфичные методы доступа к данным
 export class TaskService extends CommonService<Task> implements TaskDAO {
 
-    constructor(@Inject(TASK_URL_TOKEN) private baseUrl,
-                private http: HttpClient // для выполнения HTTP запросов
-    ) {
-        super(baseUrl, http);
-    }
+  constructor(
+      @Inject(TASK_URL_TOKEN) private baseUrl,
+      private http: HttpClient // для выполнения HTTP запросов
+  ) {
+    super(baseUrl, http);
+  }
 
-    // поиск задач по любым параметрам
-    findTasks(searchObj: TaskSearchValues): Observable<any> { // из backend получаем тип Page, поэтому указываем any
-        return this.http.post<any>(this.baseUrl + '/search', searchObj);
-    }
+  // поиск задач по любым параметрам
+  findTasks(searchObj: TaskSearchValues): Observable<any> { // из backend получаем тип Page, поэтому указываем any
+    return this.http.post<any>(this.baseUrl + '/search', searchObj);
+  }
 }

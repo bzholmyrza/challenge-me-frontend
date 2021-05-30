@@ -26,7 +26,6 @@ import localeRu from '@angular/common/locales/ru';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {EditCategoryDialogComponent} from './dialog/edit-category-dialog/edit-category-dialog.component';
 import {FooterComponent} from './views/footer/footer.component';
-import {AboutDialogComponent} from './dialog/about/about-dialog.component';
 import {HeaderComponent} from './views/header/header.component';
 import {StatComponent} from './views/stat/stat.component';
 import {StatCardComponent} from "./views/stat/stat-card/stat-card.component";
@@ -42,6 +41,7 @@ import {STAT_URL_TOKEN} from "./data/dao/impl/StatService";
 import {TASK_URL_TOKEN} from "./data/dao/impl/TaskService";
 import {CATEGORY_URL_TOKEN} from "./data/dao/impl/CategoryService";
 import {PRIORITY_URL_TOKEN} from "./data/dao/impl/PriorityService";
+import {AboutDialogComponent} from "./dialog/about-dialog/about-dialog.component";
 
 registerLocaleData(localeRu);
 

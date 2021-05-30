@@ -13,20 +13,19 @@ export const STAT_URL_TOKEN = new InjectionToken<string>('url');
 // JSON формируется автоматически для параметров и результатов
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 // класс не реализовывает и не наследует, т.к. у него только 1 метод
 export class StatService implements StatDAO{
 
-    constructor(
-        @Inject(STAT_URL_TOKEN) private baseUrl,
-        private http: HttpClient // для выполнения HTTP запросов
-    ) {
-    }
+  constructor(
+      @Inject(STAT_URL_TOKEN) private baseUrl,
+      private http: HttpClient // для выполнения HTTP запросов
+  ) {}
 
-    // общая статистика
-    getOverallStat(): Observable<Stat> {
-        return this.http.get<Stat>(this.baseUrl);
-    }
+  // общая статистика
+  getOverallStat(): Observable<Stat> {
+    return this.http.get<Stat>(this.baseUrl);
+  }
 }

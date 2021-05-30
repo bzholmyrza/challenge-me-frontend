@@ -30,15 +30,15 @@
                 <mat-form-field class="example-full-width">
                     <input
 
-                            matInput
-                            maxlength="256"
-                            placeholder="Поиск категорий"
+                        matInput
+                        maxlength="256"
+                        placeholder="Поиск категорий"
 
-                            [(ngModel)]="filterTitle"
-                            (ngModelChange)="this.checkFilterChanged()"
+                        [(ngModel)]="filterTitle"
+                        (ngModelChange)="this.checkFilterChanged()"
 
 
-                            (keydown.escape)="clearAndSearch()"
+                        (keydown.escape)="clearAndSearch()"
 
                     />
 

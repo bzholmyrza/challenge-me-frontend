@@ -25,7 +25,6 @@ export class EditCategoryDialogComponent implements OnInit {
     canDelete = true; // можно ли удалять объект (активна ли кнопка удаления)
 
     ngOnInit() {
-
         // получаем переданные в диалоговое окно данные
         this.category = this.data[0];
         this.dialogTitle = this.data[1];
@@ -48,7 +47,6 @@ export class EditCategoryDialogComponent implements OnInit {
 
     // нажали Удалить
     delete(): void {
-
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
             maxWidth: '500px',
             data: {
@@ -59,17 +57,12 @@ export class EditCategoryDialogComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-
             if (!(result)) { // если просто закрыли окно, ничего не нажав
                 return;
             }
-
-
             if (result.action === DialogAction.OK) {
                 this.dialogRef.close(new DialogResult(DialogAction.DELETE)); // нажали удалить
             }
         });
-
-
     }
 }
